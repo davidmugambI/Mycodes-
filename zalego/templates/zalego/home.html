@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+        <p><strong><i>SIGN UP TO ZALEGO</i></strong></p>
+        <form action="." method="post" novalidate id="form">{% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            {{ form.as_p }}
+            <p><input type="submit" value="SUBMIT"></p>
+        </form>
+    </div>
+{% endblock %}

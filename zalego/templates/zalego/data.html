@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div  class="container">
+    <h4> ZALEGO DATA</h4>
+    {% for data in data %}
+        <ul>
+            <li>{{ data }}</li>
+        </ul>
+
+    {% endfor %}
+{% endblock %}
+</div>

@@ -1,0 +1,12 @@
+body{
+    background-color: gainsboro;
+}
+#form{
+    border: 10px solid yellow;
+    margin-top: 30px;
+    padding: 50px;
+    background: honeydew;
+}
+h3{
+    text-align: center;
+}

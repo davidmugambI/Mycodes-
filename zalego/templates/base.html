@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'zalego/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'zalego/css/style.css' %}">
+</head>
+<body>
+<header class="header">
+            <h3 id="header"><strong><em><img id="img" src="{% static 'zalego/img/profile.png' %}">INTERVIEW</em></strong></h3>
+        </header>
+{% if request.user.is_authenticated %}
+    <div class="container" style="text-align: right">
+    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    <a href="{% url 'logout' %}">LOGOUT </a></div>
+{% else %}
+    <div class="container" style="text-align: right">
+    <a href="{% url 'login' %}">LOGIN</a></div>
+{% endif %}
+{% block content %}
+
+{% endblock %}
+</body>
+</html>

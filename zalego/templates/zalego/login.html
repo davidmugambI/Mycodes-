@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Log-in{% endblock %}
+{% block register %}
+{% endblock %}
+
+{% block content %}
+    {% if form.non_field_errors %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {% for error in form.non_field_errors %}
+        <p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
+      {% endfor %}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endif %}
+  <div class="container" id="form">
+  <p><strong><i>LOG_IN TO ZALEGO</i></strong></p>
+      <h2>Log in</h2>
+          <p>Please, use the following form to log-in:</p>
+            <p>If not registered, please <a href="{% url 'home' %}">register here</a> </p>
+
+      <form method="post" novalidate >
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {{ form.as_p }}
+        <p><button type="submit" class="btn btn-primary">Log in</button></p>
+      </form>
+    </div>
+
+{% endblock %}
